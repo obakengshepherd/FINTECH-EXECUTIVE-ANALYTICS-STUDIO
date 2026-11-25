@@ -1,6 +1,6 @@
 # KPI Dictionary — Payments Performance
 
-**Status:** Initial definitions proposed; Product Owner/business-rule approval required before implementation  
+**Status:** Proposed KPI definitions; Product Owner/business-rule approval required before implementation  
 **Authority:** This document is the intended canonical business definition for project KPIs.
 
 ## 1. General conventions
@@ -69,7 +69,11 @@ The current definitions are proposals, not final operational truth. Phase 1 must
 - Currency scope and any conversion rules.
 - Eligible test, internal, or invalid records.
 
-## 6. Validation expectations
+## 6. Proposed Phase 1 business-rule alignment
+
+The accompanying [`ANALYTICAL-REQUIREMENTS.md`](ANALYTICAL-REQUIREMENTS.md) proposes an attempt-level grain, distinct retry attempts, duplicate attempt-ID exclusion, snapshot outcome categories (successful, failed, pending, cancelled), initiation-time weekly cohorting in SAST, ZAR-only gross successful value, and explicit exclusions for reversals/refunds and revenue/profitability. These are proposals pending Product Owner approval.
+
+## 7. Validation expectations
 
 - Successful + failed + pending categories reconcile to the eligible attempt population if the categories are mutually exclusive and exhaustive.
 - Resolved attempts equal successful + failed attempts.
