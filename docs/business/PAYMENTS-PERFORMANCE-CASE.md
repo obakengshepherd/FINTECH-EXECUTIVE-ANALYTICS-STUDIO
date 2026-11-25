@@ -1,6 +1,6 @@
 # Payments Performance Analytics — Case Specification
 
-**Status:** Initial case proposal; detailed requirements not yet approved  
+**Status:** Case baseline accepted; detailed requirements proposed in `ANALYTICAL-REQUIREMENTS.md` and awaiting Product Owner approval  
 **Stakeholder:** Fictional Payments Operations Manager  
 **Environment:** Synthetic South African financial institution
 
@@ -66,7 +66,11 @@ Channel and payment type are candidate dimensions. Segment comparisons should in
 
 Descriptive patterns do not establish causes. A segment with a higher observed failure rate is an investigation lead, not proof that the segment caused failures. Findings must identify the measurement period, population, exclusions, data limitations, and validation performed.
 
-## 10. Open questions for Phase 1
+## 10. Phase 1 requirements
+
+See [`ANALYTICAL-REQUIREMENTS.md`](ANALYTICAL-REQUIREMENTS.md) for the detailed proposed population, attempt grain, status treatment, time attribution, currency scope, dimensions, outputs, exclusions, and validation requirements.
+
+## 11. Open questions for Product Owner approval
 
 1. What exact business decision should the report support?
 2. What counts as an eligible payment attempt?
