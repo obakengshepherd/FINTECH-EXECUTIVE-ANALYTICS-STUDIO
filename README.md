@@ -4,7 +4,7 @@ A synthetic financial-services analytics portfolio project demonstrating how bus
 
 ## Project status
 
-**Foundation approved · Implementation not started**
+**Foundation accepted · Phase 1 requirements in progress · Implementation not started**
 
 ## Purpose
 
@@ -40,6 +40,7 @@ Analytical outputs must define their business question, population, period, KPI 
 - [Implementation plan](docs/IMPLEMENTATION-PLAN.md)
 - [Decision register](docs/DECISIONS.md)
 - [Payments analytical case](docs/business/PAYMENTS-PERFORMANCE-CASE.md)
+- [Analytical requirements](docs/business/ANALYTICAL-REQUIREMENTS.md)
 - [KPI dictionary](docs/business/KPI-DICTIONARY.md)
 - [Data quality standards](docs/quality/DATA-QUALITY-STANDARDS.md)
 
