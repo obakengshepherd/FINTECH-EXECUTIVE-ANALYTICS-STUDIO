@@ -1,5 +1,21 @@
 # Decision Register
 
+## D-007 — Phase 1 analytical requirements baseline
+
+- **Date:** 2026-11-25
+- **Status:** PROPOSED — Product Owner approval required
+- **Decision under review:** Adopt the attempt-level payment measurement rules and analytical requirements in `docs/business/ANALYTICAL-REQUIREMENTS.md`.
+- **Key proposals:** Distinct retries count as separate attempts; duplicate attempt identifiers are treated as duplicate records; outcomes are classified as successful, failed, pending, or cancelled at a documented snapshot; pending and cancelled attempts are excluded from resolved-outcome rates; attempts are cohort-assigned by initiation time in SAST; initial data is ZAR-only; successful value is gross and excludes reversal/refund accounting.
+- **Rationale:** Establish a consistent, auditable measurement basis before database design.
+- **Authority:** Product Owner approval pending.
+
+## D-006 — Foundation documentation accepted
+
+- **Date:** 2026-11-25
+- **Status:** ACCEPTED
+- **Decision:** Product Owner accepted the eight-file foundation documentation baseline.
+- **Consequence:** Phase 0 is accepted and Phase 1 requirements work may proceed.
+
 Record material business, analytical, and technical decisions here. Newest decisions appear first. Proposed decisions must not be represented as approved.
 
 ## D-001 — Project foundation approval
