@@ -1,23 +1,25 @@
 # Implementation Plan
 
-**Status:** Foundation approved; Phase 1 not started  
+**Status:** Foundation accepted; Phase 1 requirements proposed and awaiting Product Owner approval  
 **Delivery method:** Incremental, evidence-based phases
 
 ## Phase 0 — Foundation and repository baseline
-**Status:** IN PROGRESS
+**Status:** ACCEPTED
 
 - [x] Product Owner approved project foundation.
 - [x] Product Owner approved Payments Performance Analytics as the first scenario.
 - [x] Product Owner approved the initial toolkit.
 - [x] Repository metadata and empty state inspected.
-- [ ] Foundation documentation reviewed and accepted by Product Owner.
+- [x] Foundation documentation reviewed and accepted by Product Owner.
 
 **Exit evidence:** Approved foundation, repository documentation, and recorded decisions.
 
 ## Phase 1 — Business requirements and KPI design
-**Status:** NOT STARTED
+**Status:** IN PROGRESS
 
-- Confirm stakeholder decision needs and business question.
+- [x] Confirm initial stakeholder decision needs and business question.
+- [x] Draft proposed analytical requirements in `docs/business/ANALYTICAL-REQUIREMENTS.md`.
+- [ ] Obtain Product Owner approval for proposed business rules and KPI definitions.
 - Define eligible payment population, grain, reporting period, and exclusions.
 - Specify status lifecycle and treatment of pending or unresolved payments.
 - Approve KPI dictionary, formulas, aggregation rules, and edge cases.
