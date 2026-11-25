@@ -2,7 +2,7 @@
 
 **Project:** FinTech Executive Analytics Studio  
 **Version:** 1.0  
-**Status:** Foundation approved; implementation not started  
+**Status:** Foundation accepted by Product Owner; implementation not started  
 **Authority:** Product Owner  
 **Primary specialisation:** Data Analysis
 
