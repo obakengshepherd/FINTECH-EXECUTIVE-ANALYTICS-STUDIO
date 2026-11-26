@@ -21,9 +21,9 @@ The accepted foundation remains authoritative. This handoff does not approve or 
 ## 2. Latest inspected main state
 
 - **Branch:** `main`
-- **Latest main commit inspected:** `8cb89230f8779980346827323dafa94c4f473ba0`
-- **Commit message:** `docs: establish project AI handoff and specialist review assignment`
-- **Commit date:** 2026-11-26 12:59:37 UTC
+- **Latest main commit inspected:** `342e741295ebf8032edfd59090982ae63ebbe9fa`
+- **Commit message:** `docs: refresh handoff with verified main commit`
+- **Commit date:** 2026-11-26 12:59:56 UTC
 - **Open pull requests at inspection:** None.
 - **Other branches at inspection:** None reported; only `main` was listed.
 - **Working tree:** Not applicable/inspected through GitHub connector; no local checkout status is claimed.
@@ -68,7 +68,7 @@ The accepted foundation remains authoritative. This handoff does not approve or 
 - **Assigned AI:** Claude (Specialist AI).
 - **Status:** READY TO ISSUE — awaiting Claude review response.
 - **Branch:** N/A — review-only; no file modification is authorised.
-- **Base commit:** `e795c97d7eec671f47bb64b13178b5d8889db0cb`.
+- **Base commit:** `342e741295ebf8032edfd59090982ae63ebbe9fa` (latest main inspected before this handoff update).
 - **Files to inspect:** `docs/business/ANALYTICAL-REQUIREMENTS.md`, `docs/business/KPI-DICTIONARY.md`, with relevant context from `docs/business/PAYMENTS-PERFORMANCE-CASE.md`, `docs/DECISIONS.md`, and `docs/PROJECT-ARCHITECTURE.md`.
 - **Files authorised for modification:** NONE.
 - **Files excluded from modification:** ALL repository files, especially requirements, KPI dictionary, decision register, architecture, schema, and dataset files.
