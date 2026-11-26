@@ -21,9 +21,9 @@ The accepted foundation remains authoritative. This handoff does not approve or 
 ## 2. Latest inspected main state
 
 - **Branch:** `main`
-- **Latest main commit inspected:** `e795c97d7eec671f47bb64b13178b5d8889db0cb`
-- **Commit message:** `docs: record foundation acceptance and phase 1 status`
-- **Commit date:** 2026-11-25 11:26:58 UTC
+- **Latest main commit inspected:** `8cb89230f8779980346827323dafa94c4f473ba0`
+- **Commit message:** `docs: establish project AI handoff and specialist review assignment`
+- **Commit date:** 2026-11-26 12:59:37 UTC
 - **Open pull requests at inspection:** None.
 - **Other branches at inspection:** None reported; only `main` was listed.
 - **Working tree:** Not applicable/inspected through GitHub connector; no local checkout status is claimed.
@@ -39,7 +39,7 @@ The accepted foundation remains authoritative. This handoff does not approve or 
 - `docs/business/KPI-DICTIONARY.md`
 - `docs/business/PAYMENTS-PERFORMANCE-CASE.md`
 
-At the time of inspection, `docs/AI-COLLABORATION.md` and `docs/AI-HANDOFF.md` did not exist; they are being established as part of this coordination initialisation.
+`docs/AI-COLLABORATION.md` and `docs/AI-HANDOFF.md` have now been created, retrieved from GitHub, and verified. The collaboration agreement is active; this handoff is maintained by ChatGPT.
 
 ## 4. Completed work and accepted decisions
 
@@ -66,7 +66,7 @@ At the time of inspection, `docs/AI-COLLABORATION.md` and `docs/AI-HANDOFF.md` d
 
 - **Assignment mode:** REVIEW ONLY.
 - **Assigned AI:** Claude (Specialist AI).
-- **Status:** PREPARED — awaiting execution by Claude.
+- **Status:** READY TO ISSUE — awaiting Claude review response.
 - **Branch:** N/A — review-only; no file modification is authorised.
 - **Base commit:** `e795c97d7eec671f47bb64b13178b5d8889db0cb`.
 - **Files to inspect:** `docs/business/ANALYTICAL-REQUIREMENTS.md`, `docs/business/KPI-DICTIONARY.md`, with relevant context from `docs/business/PAYMENTS-PERFORMANCE-CASE.md`, `docs/DECISIONS.md`, and `docs/PROJECT-ARCHITECTURE.md`.
@@ -84,6 +84,6 @@ No Claude findings have been received yet. Do not infer that the assignment has 
 
 ## 8. Next authorised action
 
-Execute the FEA-REV-001 REVIEW ONLY assignment against the exact current-main documents. After Claude responds, ChatGPT will independently assess the findings and present the outstanding decisions to the Product Owner.
+Issue the FEA-REV-001 REVIEW ONLY assignment to Claude against the exact current-main documents. Claude must return the review in its response only, with no repository edits. After Claude responds, ChatGPT will independently assess the findings and present the outstanding decisions to the Product Owner.
 
 **No physical database schema, final synthetic dataset, SQL implementation, or Power BI implementation is authorised at this stage.**
