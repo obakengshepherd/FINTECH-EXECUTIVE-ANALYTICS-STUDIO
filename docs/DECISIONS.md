@@ -1,5 +1,17 @@
 # Decision Register
 
+## D-008 — Four-Nexus Engineering Operating Standard
+
+- **Date:** 2026-11-27
+- **Status:** ACCEPTED
+- **Decision:** Adopt FNEOS v1.0 as the governing AI collaboration and repository workflow for this project.
+- **Authority:** Product Owner.
+- **Operating model:** ChatGPT owns architecture, requirements, documentation, assignments, and main-branch integration; Claude performs independent specialist review and explicitly assigned code work, returning complete files in chat; the user assembles and tests in VS Code, followed by ChatGPT's return/alignment checkpoint and integration.
+- **Ownership:** ChatGPT owns project documentation. Claude may read documentation but may not modify it without explicit Product Owner-approved ownership transfer. Claude owns only assigned code files during an active engineering assignment.
+- **Repository governance:** No Claude GitHub writes, branches, commits, or pull requests. Branch-based work is prohibited unless explicitly authorised by the Product Owner. Preserve history; no force-push or history rewriting.
+- **Historical baseline:** `e795c97d7eec671f47bb64b13178b5d8889db0cb` (2026-11-25). Conflicting workflow arrangements introduced 2026-11-26 are superseded without deleting historical commits.
+- **Consequence:** Replace the prior AI collaboration and handoff workflow with FNEOS. This decision changes governance only; it does not approve proposed analytical definitions or authorise implementation.
+
 ## D-007 — Phase 1 analytical requirements baseline
 
 - **Date:** 2026-11-25
@@ -14,9 +26,9 @@
 - **Date:** 2026-11-25
 - **Status:** ACCEPTED
 - **Decision:** Product Owner accepted the eight-file foundation documentation baseline.
-- **Consequence:** Phase 0 is accepted and Phase 1 requirements work may proceed.
+- **Consequence:** Phase 0 is ACCEPTED and Phase 1 requirements work may proceed.
 
-Record material business, analytical, and technical decisions here. Newest decisions appear first. Proposed decisions must not be represented as approved.
+Record material business, analytical, technical, and governance decisions here. Newest decisions appear first. Proposed decisions must not be represented as approved.
 
 ## D-001 — Project foundation approval
 

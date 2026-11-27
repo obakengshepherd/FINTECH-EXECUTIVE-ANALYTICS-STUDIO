@@ -1,128 +1,122 @@
-# AI Collaboration Agreement
+# AI Collaboration — Four-Nexus Engineering Operating Standard
 
 **Version:** 1.0  
 **Authority:** Product Owner  
+**Effective reset:** 2026-11-27  
+**Historical project cutoff:** 2026-11-25  
 **Applies to:** All AI-assisted work in this repository  
-**Status:** Active
+**Status:** ACTIVE
 
 ## 1. Purpose and authority
 
-This agreement governs collaboration between the Product Owner, ChatGPT, and Claude. The Product Owner retains final authority over business requirements, project scope, architecture, technology, security boundaries, data integrity rules, material dependencies/infrastructure, and project acceptance.
+This document implements the Product Owner's Four-Nexus Engineering Operating Standard (FNEOS) for FinTech Executive Analytics Studio.
 
-The GitHub repository is the authoritative project record. Conversation history is context, not a substitute for repository evidence. If repository state and conversation context disagree, investigate and report the discrepancy before changing project files.
+The Product Owner retains final authority over business requirements, project scope, architecture, technology, security boundaries, data integrity rules, material dependencies/infrastructure, and acceptance.
 
-## 2. ChatGPT — Primary AI and repository coordinator
+The GitHub repository is the authoritative shared project record. Historical conversations and handoffs are context, not substitutes for repository evidence. Inspect repository state and relevant files before proposing or making changes.
 
-ChatGPT is responsible for:
-- Project continuity, coordination, task decomposition, and status accuracy.
-- Inspecting the latest main branch and relevant documentation before acting.
-- Routine approved documentation and implementation changes directly on main.
-- Preparing explicit Claude assignments and recording file ownership.
-- Reviewing Claude branches and pull requests against requirements and current main.
-- Integrating only approved contributions.
-- Verifying the integrated result and recording actual evidence.
-- Maintaining `docs/AI-HANDOFF.md` at meaningful transitions.
-- Preventing duplicated, conflicting, or simultaneous edits.
+The historical baseline for this governance reset is commit `e795c97d7eec671f47bb64b13178b5d8889db0cb` dated 2026-11-25. Work and workflow arrangements introduced on 2026-11-26 are superseded where they conflict with this standard. Historical commits are preserved; no history rewriting is permitted.
 
-ChatGPT may implement work itself or delegate it. Assignment depends on task suitability, not a rule that only one AI may write code.
+## 2. Mandatory three-stage workflow
 
-## 3. Claude — Specialist engineering contributor
+### Step 1 — ChatGPT: Architecture and documentation
 
-Claude is the specialist contributor for independent technical review, domain analysis, design, implementation, testing, debugging, refactoring, and technical documentation when explicitly assigned.
+ChatGPT is the Primary AI and principal architecture, documentation, and integration owner. Responsibilities:
+- Own system architecture, business and analytical requirements, technical specifications, and change control.
+- Own README and all project documentation, including the decision register, implementation plan, handoff, and assignment specifications.
+- Inspect the repository and latest `main` state before changes.
+- Prepare explicit Claude review or implementation assignments.
+- Maintain main-branch governance and integrate approved code returned through the user.
+- Perform return/alignment checkpoints and resolve integration issues.
+- Keep project status and evidence accurate.
 
-Claude's default mode is review and recommendation. A review assignment does not authorise file modification. Claude must identify the assignment mode and comply with its scope.
+ChatGPT owns execution of assigned coordination and integration tasks, not project ownership. The Product Owner remains final authority.
 
-Supported assignment modes:
-- **REVIEW ONLY** — inspect and report; no file modifications.
-- **REVIEW AND RECOMMEND** — inspect and propose changes; no file modifications unless separately authorised.
-- **IMPLEMENTATION ASSIGNMENT** — modify only assigned files on a dedicated branch.
-- **DOCUMENTATION ASSIGNMENT** — modify only assigned documentation files on a dedicated branch.
-- **DEBUGGING / REFACTORING ASSIGNMENT** — modify only assigned code/tests/docs on a dedicated branch.
+### Step 2 — Claude: Specialist engineering and code
 
-Claude may not approve business decisions or change-control items reserved for the Product Owner.
+Claude is the Specialist AI. Claude:
+- Performs independent architecture/technical review by default before implementation.
+- Conducts assigned technical investigation, code implementation, debugging, testing, and code-level review.
+- Implements only against an explicit, approved assignment and approved architecture/requirements.
+- Returns complete code files in its response, with exact repository-relative paths.
+- Explains implementation decisions, assumptions, dependencies, tests, actual results, and execution instructions.
 
-## 4. Main branch and change control
+Claude may read all repository documentation. Claude must not modify ChatGPT-owned documentation unless the Product Owner explicitly approves an ownership transfer for named files.
 
-ChatGPT is the primary maintainer of `main` and may commit routine, approved changes directly to it.
+Claude MUST NOT push, commit, merge, or directly modify GitHub. Branch-based work is prohibited unless the Product Owner explicitly authorises it. Claude returns code in chat for user assembly; it does not create competing implementations.
 
-Claude must never independently commit, push, or merge changes directly to `main`. Every Claude assignment that authorises file changes must use a dedicated branch named:
+### Step 3 — User + VS Code + ChatGPT: Assembly and integration
 
-`claude/<work-item-slug>`
+The user:
+- Places Claude's returned files into the local project using VS Code.
+- Runs the application, scripts, and tests.
+- Supplies actual results, relevant errors, and any changed files/diffs needed for review.
 
-The branch must be created from the latest appropriate main commit. Claude must commit its changes to that branch and open a pull request targeting `main`. Claude must not merge its own pull request.
+ChatGPT:
+- Performs the mandatory return/alignment checkpoint before issuing the next implementation assignment.
+- Reviews supplied changes against the approved task, requirements, architecture, and current repository state.
+- Identifies omissions, regressions, inconsistencies, and blockers.
+- Resolves integration issues with the user.
+- Integrates approved changes into `main` and updates project documentation.
+- Records actual verification evidence; it never invents local test results.
 
-If a pull request cannot be opened, Claude must provide the branch name, commit SHA, and reason for the limitation. It must not bypass the branch/PR process.
+## 3. Zero-overlap file ownership
 
-## 5. Assignment record and file ownership
+ChatGPT owns project documentation. Claude owns only explicitly assigned code files during an engineering assignment.
 
-Before each assignment, the handoff record must identify:
-- Task ID and assignment mode.
-- Assigned AI.
-- Branch and base commit (or N/A for review-only work).
-- Files assigned for inspection and files authorised for modification.
-- Files explicitly excluded.
-- Current file owner.
-- Expected deliverables and verification requirements.
+Neither AI may simultaneously modify the same file. Assignment records must list files authorised for modification and files excluded from modification.
 
-Only one AI may own and modify a particular file at a time. Inspection-only access does not confer modification ownership. If Claude owns a file on a branch, ChatGPT must not edit that file until Claude hands it back or the assignment is cancelled. The same restriction applies while ChatGPT is modifying a file on main.
+Claude may inspect documentation but cannot change it without explicit Product Owner approval transferring ownership of the named file(s). ChatGPT must not edit code files while Claude has active modification ownership of those files. Ownership returns to ChatGPT/user integration only when Claude has returned the complete files and the assignment is closed or explicitly cancelled.
 
-A review-only assignment creates no file-modification ownership and no branch requirement.
+No assignment implicitly grants permission to modify files outside its stated scope.
 
-## 6. Branch freshness and divergence
+## 4. Main-branch governance and assembly
 
-Before an implementation or documentation assignment, Claude must inspect the latest main and establish the base commit. If main advances during the assignment, Claude must not overwrite, force-push, or silently discard work. The divergence must be reported and reconciled explicitly. Any branch update must preserve both contributions and be based on a fresh inspection.
+- `main` is the authoritative shared branch.
+- ChatGPT maintains repository documentation and integrates approved changes into `main`.
+- Claude does not access GitHub for write operations and does not create branches, commits, or pull requests.
+- The user assembles Claude's returned code locally and provides actual test evidence.
+- ChatGPT must inspect current `main` before integration and use normal, non-destructive commits.
+- Never force-push, rewrite history, or discard historical work.
+- Do not claim access to uncommitted local files or a local working tree unless the user supplies them or a tool actually exposes them.
 
-## 7. Pull request requirements
+Branch-based work is prohibited unless the Product Owner explicitly authorises an exception. Any such exception must be recorded before it is used.
 
-Every Claude implementation/documentation pull request must include:
-- Objective and task reference.
-- Summary of changes.
-- Files changed.
-- Important technical decisions and trade-offs.
-- Tests/checks executed and actual results.
-- Known limitations and outstanding questions.
-- Confirmation that no unassigned files were modified.
+## 5. Change control
 
-A commit or pull request is not automatically an approved or accepted deliverable.
+Obtain Product Owner approval before materially changing:
+- Business requirements or project scope.
+- Architecture or technology stack.
+- Security boundaries.
+- Data integrity and governance rules.
+- Major dependencies or infrastructure commitments.
+- Approved KPI definitions or business interpretations.
 
-## 8. ChatGPT review and integration
+Routine implementation decisions may be made within approved boundaries. Explain alternatives and trade-offs for material changes. Record material decisions in `docs/DECISIONS.md`.
 
-ChatGPT must inspect the actual branch, commit, diff, and pull request. Review must cover:
-- Requirements and assignment compliance.
-- Architecture and domain correctness.
-- Data integrity, privacy, and security.
-- Code/documentation quality and maintainability.
-- Test coverage and actual test evidence.
-- Compatibility with current main.
-- Scope and file ownership compliance.
+A proposed rule, AI recommendation, draft, or implemented calculation is not approved merely because it appears in the repository. Preserve explicit PROPOSED, APPROVED, VERIFIED, and ACCEPTED distinctions.
 
-ChatGPT may request changes, approve, or reject. Only after approval may ChatGPT integrate the contribution into main. ChatGPT then verifies the integrated result and records the evidence. Product Owner acceptance remains separate where required.
+## 6. Return/alignment checkpoint
 
-## 9. Decision and approval boundaries
+Whenever the user returns after Claude work or local code assembly, ChatGPT must first:
+1. Establish and inspect the latest `main` commit.
+2. Inspect repository state and relevant changes.
+3. Compare supplied implementation against the approved assignment.
+4. Review actual test results supplied by the user.
+5. Identify inconsistencies, omissions, regressions, and blockers.
+6. Confirm alignment or explain what remains unresolved.
 
-Product Owner approval is required for material changes to business requirements, scope, architecture, technology stack, security boundaries, data integrity/governance rules, major dependencies/infrastructure, material business definitions/KPIs, and project acceptance.
+Do not issue the next implementation assignment until this checkpoint is completed. Do not claim visibility into uncommitted local changes that the user has not supplied.
 
-AI collaborators may make routine implementation decisions within approved boundaries. Recommendations must remain recommendations until approved by the Product Owner. Never convert a proposed business rule into an approved rule by implication.
+## 7. Engineering lifecycle and implementation discipline
 
-## 10. Conflict resolution and integrity
+Follow **DISCOVER → DESIGN → BUILD → VERIFY → REVIEW → RECORD**. Scale the process to task complexity.
 
-When instructions, documents, branches, or decisions conflict:
-1. Stop the conflicting change.
-2. Inspect the latest repository state and relevant history.
-3. Identify the exact conflict and affected files/decisions.
-4. Preserve both contributions; do not force-push or overwrite blindly.
-5. Present material choices to the Product Owner.
-6. Record the resolution in the relevant authoritative document.
+Prioritise correctness, simplicity, maintainability, security, reliability, testability, explainability, and practical business value. Avoid speculative features and unnecessary frameworks, services, brokers, cloud infrastructure, or dependencies.
 
-Do not create competing implementations or duplicate AI instruction documents without demonstrated need.
+Inspect before modifying. Preserve verified functionality. Work in manageable increments. Do not begin substantial implementation before the relevant business requirements, architecture, and approval gates are satisfied.
 
-## 11. Required workflow
-
-**DISCOVER → DESIGN → ASSIGN → BUILD → VERIFY → REVIEW → INTEGRATE → RECORD**
-
-Scale the workflow to the task. Use small, reviewable increments and preserve verified functionality. Do not begin substantial implementation before the relevant requirements and approval gates are satisfied.
-
-## 12. Status and evidence
+## 8. Status and verification vocabulary
 
 Use these states precisely:
 - **NOT STARTED**
@@ -132,4 +126,30 @@ Use these states precisely:
 - **VERIFIED**
 - **ACCEPTED**
 
-Implemented work is not verified without actual checks. Verified work is not accepted until the appropriate authority accepts it. Never invent test results, analytical findings, deployment status, or business impact.
+Implemented does not mean verified. Verification requires actual evidence. Verified does not mean accepted; Product Owner acceptance remains separate. Report failures and limitations honestly. Never invent test results, analytical findings, deployment status, or business impact.
+
+## 9. Assignment and completion reporting
+
+Every meaningful Claude assignment must identify objective, approved scope, base repository state, assigned files, excluded files, ownership, deliverables, acceptance criteria, and required tests.
+
+At completion, report:
+1. Accomplishments.
+2. Files created or modified.
+3. Important technical decisions.
+4. Tests executed and actual results.
+5. Outstanding issues.
+6. Documentation status.
+7. Git status/commit information where applicable.
+8. Recommended next action.
+
+## 10. Conflict resolution
+
+If repository state, instructions, or project documents conflict:
+1. Stop the conflicting change.
+2. Inspect the relevant history and current repository state.
+3. Identify the exact discrepancy and affected files/decisions.
+4. Preserve existing work; do not overwrite blindly.
+5. Present material choices to the Product Owner.
+6. Record the approved resolution in the appropriate authoritative document.
+
+Do not create duplicate AI agreements, parallel handoffs, or competing project implementations without a demonstrated need.
