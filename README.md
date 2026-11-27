@@ -35,7 +35,7 @@ Analytical outputs must define their business question, population, period, KPI 
 
 ## AI collaboration and governance
 
-This project follows the **Four-Nexus Engineering Operating Standard (FNEOS) v1.0**:
+This project follows the **Four-Nexus Engineering Operating Standard (FNEOS) v1.1**:
 1. ChatGPT owns architecture, requirements, specifications, documentation, assignments, change control, and main-branch integration.
 2. Claude performs one independent review of the relevant Primary AI work within the same bounded implementation handoff, then proceeds unless a genuine blocker or Product Owner decision prevents it. Claude implements only assigned code files and returns complete files in chat.
 3. The user assembles and tests in VS Code; ChatGPT performs one return/alignment checkpoint and integrates approved work.
@@ -50,6 +50,8 @@ Claude does not push, commit, create branches, or modify ChatGPT-owned documenta
 - [Decision register](docs/DECISIONS.md)
 - [AI collaboration — FNEOS](docs/AI-COLLABORATION.md)
 - [AI handoff and active assignment](docs/AI-HANDOFF.md)
+- [FEA-SYN-001 synthetic dataset specification](docs/data/FEA-SYN-001-SYNTHETIC-DATASET-SPECIFICATION.md)
+- [Implementation log](docs/engineering/IMPLEMENTATION-LOG.md)
 - [Payments analytical case](docs/business/PAYMENTS-PERFORMANCE-CASE.md)
 - [Approved analytical requirements](docs/business/ANALYTICAL-REQUIREMENTS.md)
 - [Approved KPI dictionary](docs/business/KPI-DICTIONARY.md)
