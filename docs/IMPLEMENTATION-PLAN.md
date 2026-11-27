@@ -39,7 +39,7 @@
 - [ ] Define the minimal SQL Server relational model in a subsequent bounded increment.
 - [ ] Create SQL schema/load scripts after the model is approved within the existing architecture.
 
-**Current increment:** FEA-SYN-001 — deterministic source CSV generator and tests. It generates a clean canonical eligible population only; deliberate defect injection is deferred.
+**Current increment:** FEA-SYN-001 — deterministic source CSV generator and tests. Its detailed companion contract is [FEA-SYN-001 Synthetic Dataset Specification](data/FEA-SYN-001-SYNTHETIC-DATASET-SPECIFICATION.md). It generates a clean canonical eligible population only; deliberate defect injection is deferred.
 
 **Exit evidence:** Reproducible synthetic source dataset, passing test evidence, documented grain and generation instructions. Database schema/load work is a subsequent increment, not part of FEA-SYN-001.
 
