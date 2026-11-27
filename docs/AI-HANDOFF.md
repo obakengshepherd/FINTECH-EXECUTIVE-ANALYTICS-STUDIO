@@ -3,107 +3,170 @@
 **Last updated:** 2026-11-27  
 **Maintainer:** ChatGPT (Primary AI; documentation and integration owner)  
 **Authority:** Product Owner  
-**Repository:** [obakengshepherd/FINTECH-EXECUTIVE-ANALYTICS-STUDIO](https://github.com/obakengshepherd/FINTECH-EXECUTIVE-ANALYTICS-STUDIO)  
-**Governing workflow:** [FNEOS v1.0](AI-COLLABORATION.md)
+**Repository:** `obakengshepherd/FINTECH-EXECUTIVE-ANALYTICS-STUDIO`  
+**Governing workflow:** [FNEOS v1.1](AI-COLLABORATION.md)
 
-## 1. Historical baseline and current repository state
+## 1. Verified repository baseline
 
-- **Historical cutoff:** 2026-11-25.
-- **Authoritative historical baseline:** `e795c97d7eec671f47bb64b13178b5d8889db0cb`.
-- **Historical status:** Phase 0 ACCEPTED; Phase 1 IN PROGRESS; implementation NOT STARTED.
-- **Current main inspected for reset:** `6fe4ffb84717638e99fc6530a0f953a1553b205f` (2026-11-26).
-- **Reset outcome:** 26 November AI workflow arrangements are superseded by FNEOS. Their commits remain in history; no history rewriting or deletion is authorised.
-- **Working tree:** Local working-tree state is unknown and has not been inspected. Do not infer local status from GitHub.
+- **Latest main inspected before this documentation update:** `128819849aeb7b0dea741e05067a2c3691d20f0b`.
+- **Historical baseline:** `e795c97d7eec671f47bb64b13178b5d8889db0cb` (2026-11-25).
+- **Local working tree:** Not inspected; do not infer local status from GitHub.
+- **Current documentation commit:** To be recorded after this update is committed and verified.
 
-The 25 November business and foundation baseline remains valid. This reset changes collaboration governance and documentation consistency only; it does not restart the project or approve proposed analytical rules.
+The historical project baseline and accepted foundation are preserved. The 26 November workflow arrangements remain in history but are superseded where inconsistent with active FNEOS.
 
 ## 2. Current project status
 
-- **Foundation:** ACCEPTED by Product Owner.
-- **Current phase:** Phase 1 — Business Requirements and KPI Design.
-- **Phase 1:** IN PROGRESS.
+- **Foundation / Phase 0:** ACCEPTED.
+- **Business requirements and KPI design / Phase 1:** ACCEPTED on 2026-11-27 under D-007.
+- **Synthetic data environment / Phase 2:** IN PROGRESS.
+- **Implementation:** NOT STARTED; Claude has been issued FEA-SYN-001 but has not yet returned code.
 - **First scenario:** Payments Performance Analytics.
-- **Approved toolkit:** SQL Server 2022/T-SQL, Excel, Power BI, Python/pandas where justified.
-- **Implementation:** NOT STARTED.
-- **Synthetic data modelling:** NOT STARTED; gated on Phase 1 requirements/KPI approval.
-- **D-007:** PROPOSED — Product Owner approval required.
-- **Analytical requirements:** Proposed; not approved implementation rules.
-- **KPI dictionary:** Proposed; not approved implementation rules.
+- **Approved toolkit:** SQL Server 2022/T-SQL, Excel, Power BI, Python where justified.
+- **D-007:** ACCEPTED.
+- **D-008:** ACCEPTED.
+- **Active increment:** FEA-SYN-001 — Deterministic Synthetic Payments Source Dataset.
 
-## 3. Authoritative project documents
+## 3. Authoritative approved references
 
-- `README.md`
-- `docs/PROJECT-FOUNDATION.md`
-- `docs/PROJECT-ARCHITECTURE.md`
-- `docs/IMPLEMENTATION-PLAN.md`
-- `docs/DECISIONS.md`
-- `docs/AI-COLLABORATION.md`
-- `docs/AI-HANDOFF.md`
-- `docs/business/PAYMENTS-PERFORMANCE-CASE.md`
-- `docs/business/ANALYTICAL-REQUIREMENTS.md`
-- `docs/business/KPI-DICTIONARY.md`
-- `docs/quality/DATA-QUALITY-STANDARDS.md`
+- `docs/DECISIONS.md` — D-007 approved analytical baseline; D-008 FNEOS governance.
+- `docs/business/ANALYTICAL-REQUIREMENTS.md` — approved population, status, snapshot, time, currency, exclusions, outputs, validation.
+- `docs/business/KPI-DICTIONARY.md` — canonical PAY-001 through PAY-008 definitions.
+- `docs/business/PAYMENTS-PERFORMANCE-CASE.md` — approved case specification.
+- `docs/quality/DATA-QUALITY-STANDARDS.md` — approved case-specific quality/reconciliation controls.
+- `docs/PROJECT-ARCHITECTURE.md` — simple synthetic-source → SQL Server → analysis/validation → Power BI → executive output architecture.
+- `docs/IMPLEMENTATION-PLAN.md` — phase status and exit criteria.
+- `docs/AI-COLLABORATION.md` — active streamlined FNEOS workflow.
 
-ChatGPT owns modifications to all project documentation. Claude has read/review access unless the Product Owner explicitly transfers ownership of named files.
+## 4. FEA-SYN-001 — Deterministic Synthetic Payments Source Dataset
 
-## 4. Accepted foundation and preserved decisions
+**Status:** ISSUED — awaiting Claude implementation response  
+**Phase:** Phase 2 — Synthetic Data Environment  
+**Base main SHA:** `128819849aeb7b0dea741e05067a2c3691d20f0b`  
+**Assigned specialist:** Claude  
+**Assignment mode:** One independent review followed by implementation under this same handoff.
 
-- Synthetic financial-services analytics portfolio project; no claim of access to FNB/FirstRand confidential systems or data.
-- Payments Performance Analytics is the first scenario.
-- SQL Server 2022/T-SQL, Excel, Power BI, and Python/pandas where justified are the approved toolkit.
-- The project foundation is accepted; Phase 0 is complete.
-- The proposed architecture remains the existing simple analytical-project direction.
-- The 25 November requirements, KPI dictionary, analytical case, and data-quality standards are preserved.
+### 4.1 Objective
 
-## 5. Phase 1 approval gates
+Implement a deterministic, configurable Python generator that creates a clean canonical CSV source population of synthetic payment attempts for the approved twelve-month Payments Performance period and fixed outcome snapshot.
 
-The following remain open and must be resolved before synthetic data modelling:
-1. Eligible population and attempt grain.
-2. Retry, duplicate submission, and duplicate attempt-ID treatment.
-3. Status lifecycle and successful/failed/pending/cancelled classification.
-4. Pending snapshot, late-arriving outcome, and cancellation treatment.
-5. Initiation-time attribution, SAST timezone, and week boundaries.
-6. ZAR-only scope and gross successful payment value.
-7. Reversal/refund exclusions and monetary interpretation.
-8. KPI formulas, denominators, null/zero handling, segmentation, and reconciliation.
-9. Required reporting dimensions and management outputs.
-10. Data-quality exceptions and validation expectations.
+The generated source is fictional. It must not contain real customer, account, card, credential, or confidential banking data. It must not encode a desired analytical conclusion or claim real institutional behaviour.
 
-All proposed definitions remain proposed until the Product Owner explicitly approves or revises them. D-007 remains PROPOSED.
+### 4.2 Approved rules and references
 
-## 6. FNEOS operating workflow
+Follow D-007 and the approved documents in section 3. Key parameters:
+- Initiation period: 2025-10-01 through 2026-09-30 inclusive.
+- Outcome snapshot: 2026-10-31 23:59:59 SAST (UTC+02:00).
+- Store timestamps in UTC; use SAST for reporting dates and Monday–Sunday weeks.
+- Currency: ZAR only; amount precision: two decimal places.
+- Canonical grain: one distinct payment attempt.
+- Distinct retry IDs are separate attempts and may share a payment-instruction ID.
+- Snapshot outcomes: SUCCESSFUL, FAILED, PENDING, CANCELLED.
+- Pending/cancelled are excluded from resolved rates.
+- Fixed seed must reproduce byte-for-byte equivalent logical output.
 
-1. **ChatGPT — Architecture & Documentation:** requirements, architecture, specifications, documentation, assignments, change control, main governance.
-2. **Claude — Specialist Engineering & Code:** independent review by default; assigned code implementation only; returns complete files and exact paths in chat. No GitHub writes, branches, commits, or documentation edits.
-3. **User + VS Code + ChatGPT — Assembly & Integration:** user assembles and tests; ChatGPT performs return/alignment checkpoint, resolves issues, integrates approved code into main, and records evidence.
+### 4.3 Exact files Claude may create
 
-Zero-overlap applies. ChatGPT owns documentation; Claude owns only assigned code files during an active implementation assignment. No branch-based work unless the Product Owner explicitly authorises an exception.
+1. `src/data_generation/generate_payments.py`
+2. `tests/test_generate_payments.py`
 
-## 7. Specialist review assignment queue
+**Generated runtime output (not an assigned source file):** `data/generated/payments_attempts.csv`. The generator must create the parent directory when needed. Do not include a generated CSV in the code-file return unless explicitly requested; the user will generate it locally.
 
-### FEA-REV-001 — Independent review of proposed payment requirements and KPI definitions
+### 4.4 Explicitly excluded files and work
 
-- **Assignment mode:** REVIEW ONLY.
-- **Assigned AI:** Claude (Specialist AI).
-- **Status:** NOT STARTED — assignment prepared; not yet issued.
-- **Base repository state:** Latest main commit must be re-inspected immediately before issuing the assignment.
-- **Files to inspect:** `docs/business/ANALYTICAL-REQUIREMENTS.md`, `docs/business/KPI-DICTIONARY.md`, `docs/business/PAYMENTS-PERFORMANCE-CASE.md`, `docs/DECISIONS.md`, and `docs/PROJECT-ARCHITECTURE.md`.
-- **Files authorised for modification:** NONE.
-- **Files excluded from modification:** ALL repository files.
-- **Owner:** ChatGPT retains documentation modification ownership; Claude is review-only.
-- **Objective:** Independently assess measurement grain, retries, duplicate identifiers, outcome taxonomy, resolved denominators, pending/cancelled treatment, time attribution, SAST boundaries, ZAR scope, gross successful value, reversals/refunds, data-quality edge cases, KPI completeness, and executive interpretability.
-- **Required output:** Findings classified as ACCEPTABLE, ACCEPTABLE WITH CONDITIONS, CHANGE RECOMMENDED, or PRODUCT OWNER DECISION REQUIRED. Explain the issue, example/impact, recommended treatment, and whether Product Owner approval is required.
-- **Restrictions:** Do not approve D-007, alter business meaning, edit files, design a physical schema, generate data, or implement code.
-- **Deliverable:** Review report in Claude's chat response only. No branch, commit, or PR.
+- All project documentation, including README, decision register, handoff, roadmap, requirements, KPI dictionary, case, quality standards, and architecture.
+- SQL schema, SQL load scripts, database objects, SQL queries, Power BI files, Excel workbooks, dashboards, APIs, web applications, cloud infrastructure, and deployment.
+- Dependencies beyond the Python standard library.
+- Intentional quality-defect injection, test/internal/non-ZAR records, or conflicting duplicate source records. FEA-SYN-001 generates a clean canonical eligible population; quality-defect scenarios belong to a later separately scoped increment.
+- GitHub writes, branches, commits, pull requests, or modifications outside the two assigned files.
 
-## 8. Return/alignment checkpoint status
+### 4.5 Environment and implementation assumptions
 
-No Claude review response or local code assembly has been supplied for this reset. Therefore, no specialist findings, local test results, or implementation changes are claimed.
+- Python 3.11+.
+- Standard library only (for example: csv, datetime, decimal, pathlib, random, argparse, zoneinfo, unittest).
+- No network access, external API, secrets, or production connection strings.
+- Default target volume: 20,000 attempts, configurable by command-line arguments or a simple documented function interface.
+- Use a documented fixed default seed and permit seed override.
+- Use Decimal for monetary calculations and serialize two decimal places.
+- Use explicit UTC-aware timestamps; convert to SAST only for business reporting derivations.
+- Model outcome status as observed at the approved snapshot. A PENDING attempt has no terminal outcome timestamp. Terminal outcome timestamps must not exceed the snapshot and must not precede initiation.
+- Use controlled, documented channel and payment-type domains. Failure reason is optional and must be coherent with the outcome.
+- Distributions should be plausible and varied, but neutral: do not deliberately create a trend, channel effect, or failure concentration to manufacture an insight.
+- Retry generation must be explicit and auditable through shared instruction IDs and distinct attempt IDs.
 
-When the user returns with Claude's review or assembled code, ChatGPT must first inspect the latest main and compare the supplied work against its assignment before issuing any subsequent task.
+### 4.6 Expected output fields
 
-## 9. Next authorised action
+At minimum:
+- `payment_attempt_id`
+- `payment_instruction_id`
+- `initiated_at_utc`
+- `outcome_status_as_of_snapshot`
+- `outcome_at_utc` (blank for PENDING)
+- `payment_channel`
+- `payment_type`
+- `amount_zar`
 
-Issue FEA-REV-001 to Claude as a REVIEW ONLY assignment after confirming the latest main commit. ChatGPT will then evaluate the review and present any material business-rule/KPI choices to the Product Owner.
+Additional fields are allowed only when justified by the approved analytical requirements (for example, controlled failure reason). Document every field and its meaning in the generator's module documentation or CLI help; do not add customer PII.
 
-**No synthetic data model, database schema, seed data, SQL analysis implementation, or Power BI implementation is authorised until Phase 1 requirements and KPI definitions are explicitly approved.**
+### 4.7 Required behaviour and acceptance criteria
+
+1. Running with the same seed and parameters produces identical logical rows and stable CSV output.
+2. The configured number of canonical attempt rows is generated.
+3. Every payment_attempt_id is unique.
+4. Genuine retries have distinct attempt IDs and a shared payment_instruction_id.
+5. Every record has a valid instruction ID, channel, payment type, timestamp, ZAR amount, and approved snapshot outcome.
+6. Initiation timestamps fall within the inclusive approved period.
+7. Timestamps are UTC-aware in the generator's internal representation and serialize consistently in UTC.
+8. Outcome timestamps for terminal outcomes are at or before the fixed snapshot and not earlier than initiation; PENDING has a blank outcome timestamp.
+9. Monetary amounts are positive, represented to two decimal places, and parseable as exact decimal values.
+10. The four snapshot outcome counts sum exactly to the canonical eligible population.
+11. Resolved count equals SUCCESSFUL + FAILED; success/failure rates sum to 100% when resolved count is positive; zero resolved count yields undefined/None rather than zero.
+12. CSV header and field ordering are stable and documented.
+13. Output directory is configurable or safely defaulted to the repository-relative generated-data path.
+14. Automated tests cover determinism, row count, uniqueness, retry linkage, domains, monetary precision, date boundaries, snapshot/outcome timestamp constraints, and reconciliation.
+15. The generator runs without third-party packages.
+
+### 4.8 Required commands and expected outcomes
+
+Claude must provide exact commands for:
+- Running the generator with default parameters.
+- Running with an explicit seed and output path.
+- Running automated tests using the standard library test runner.
+
+Expected outcomes:
+- Generator exits successfully and writes the requested CSV.
+- The same seed/configuration yields identical output.
+- All automated tests pass.
+- A concise generation summary reports row count, outcome counts, date range, snapshot, and output path. Do not report invented results; clearly label any expected sample output as illustrative.
+
+### 4.9 Complete-file return and VS Code assembly
+
+Return the complete contents of both assigned files in Claude's chat, each preceded by its exact repository-relative path. Do not return partial snippets or diffs as a substitute.
+
+Then provide:
+1. Implementation explanation and assumptions.
+2. Python version/dependency statement.
+3. VS Code instructions to create the two files at the exact paths.
+4. Exact PowerShell commands from the repository root.
+5. Expected console summary and test outcome.
+6. Actual tests Claude ran, clearly distinguished from tests the user must run locally.
+7. Known limitations and any non-blocking observations.
+
+### 4.10 One-review rule and stop conditions
+
+First perform one independent review of the approved design and this handoff. Then:
+- If findings are NON-BLOCKING, document them briefly and proceed with implementation without another review cycle.
+- If a genuine BLOCKING issue prevents correct implementation, stop only the affected part and report exact issue, impact, and proposed resolution.
+- If a PRODUCT OWNER DECISION is genuinely necessary because the approved business meaning, architecture, security, or data integrity boundary would change, stop and request that precise decision.
+- Do not reopen settled D-007 rules or request approval for routine implementation details within this scope.
+- If no blocker exists, do not wait for another confirmation; implement and return the files.
+
+## 5. Return/alignment checkpoint
+
+When the user returns with Claude's response or local assembly evidence, ChatGPT must inspect latest main, compare the returned files against FEA-SYN-001, review actual VS Code test results, and identify defects/omissions before the next increment. No local working-tree state or test result is assumed until supplied.
+
+## 6. Next action
+
+Claude is to execute FEA-SYN-001 under section 4. The Product Owner assembles and runs the returned files in VS Code. ChatGPT then performs the single return/alignment checkpoint.
+
+**No SQL schema, database load, SQL analysis, or Power BI implementation is included in FEA-SYN-001.**

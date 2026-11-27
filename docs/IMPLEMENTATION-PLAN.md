@@ -1,6 +1,6 @@
 # Implementation Plan
 
-**Status:** Foundation accepted; Phase 1 requirements and KPI definitions proposed and awaiting explicit Product Owner approval  
+**Status:** Phase 0 ACCEPTED · Phase 1 ACCEPTED · Phase 2 IN PROGRESS  
 **Delivery method:** Incremental, evidence-based phases  
 **Governance:** Four-Nexus Engineering Operating Standard (FNEOS); see `docs/AI-COLLABORATION.md`
 
@@ -11,42 +11,44 @@
 - [x] Product Owner approved Payments Performance Analytics as the first scenario.
 - [x] Product Owner approved the initial toolkit.
 - [x] Repository metadata and empty state inspected.
-- [x] Foundation documentation reviewed and accepted by Product Owner.
+- [x] Foundation documentation reviewed and accepted.
 
 **Exit evidence:** Approved foundation, repository documentation, and recorded decisions.
 
 ## Phase 1 — Business requirements and KPI design
-**Status:** IN PROGRESS
+**Status:** ACCEPTED — 2026-11-27
 
-- [x] Confirm initial stakeholder decision needs and business question.
-- [x] Draft proposed analytical requirements in `docs/business/ANALYTICAL-REQUIREMENTS.md`.
-- [x] Align the proposed KPI catalogue and validation expectations with the four proposed outcome categories.
-- [ ] Complete independent specialist review of analytical requirements and KPI definitions.
-- [ ] Resolve review findings and present material business-rule choices to the Product Owner.
-- [ ] Obtain explicit Product Owner approval for the eligible population, grain, business rules, KPI definitions, formulas, and exclusions.
-- [ ] Finalise the case specification, required dimensions, and analytical outputs after approval.
+- [x] Confirm stakeholder decision needs and business question.
+- [x] Define eligible population, attempt grain, retries, duplicate handling, and exclusions.
+- [x] Approve four-status snapshot model and pending/cancelled treatment.
+- [x] Approve UTC storage, SAST reporting, Monday–Sunday weeks, reporting period, and snapshot.
+- [x] Approve ZAR-only scope and gross successful attempt value.
+- [x] Approve KPI catalogue, formulas, denominators, NULL handling, dimensions, outputs, and reconciliations.
+- [x] Record Product Owner approval in D-007.
+- [x] Align case specification, analytical requirements, KPI dictionary, and quality standards.
 
-**Approval gate:** The current requirements and KPI definitions are proposals. This documentation consistency correction does not approve D-007 or any business rule. Do not treat the proposed four-status model, denominators, cancellation treatment, or value definitions as implementation authority until the Product Owner explicitly approves them.
-
-**Exit evidence:** Product Owner-accepted case specification and KPI definitions, with assumptions, exclusions, edge cases, and approval status recorded.
+**Exit evidence:** D-007 ACCEPTED; approved analytical requirements and KPI dictionary committed to main.
 
 ## Phase 2 — Synthetic data environment
-**Status:** NOT STARTED
+**Status:** IN PROGRESS — FEA-SYN-001 issued; Claude implementation NOT STARTED
 
-- Design the minimal relational model only after Phase 1 approval.
-- Define deterministic synthetic data generation and configuration.
-- Document realistic distributions without predetermining analytical conclusions.
-- Define controlled data-quality exceptions.
-- Create schema and seed scripts after design approval.
+- [ ] Implement deterministic synthetic payments attempt generator.
+- [ ] Implement automated tests for repeatability, schema/domain validity, status reconciliation, and reporting-period/snapshot boundaries.
+- [ ] Generate the initial CSV dataset and inspect its output.
+- [ ] Review dataset grain, distributions, and data-quality profile.
+- [ ] Define the minimal SQL Server relational model in a subsequent bounded increment.
+- [ ] Create SQL schema/load scripts after the model is approved within the existing architecture.
 
-**Exit evidence:** Reproducible dataset, documented grain, schema, and generation instructions.
+**Current increment:** FEA-SYN-001 — deterministic source CSV generator and tests. It generates a clean canonical eligible population only; deliberate defect injection is deferred.
+
+**Exit evidence:** Reproducible synthetic source dataset, passing test evidence, documented grain and generation instructions. Database schema/load work is a subsequent increment, not part of FEA-SYN-001.
 
 ## Phase 3 — Exploration and data quality
 **Status:** NOT STARTED
 
 - Profile record counts, ranges, nulls, duplicates, and distributions.
 - Test referential integrity and domain validity.
-- Separate injected defects from legitimate business events.
+- Assess quantified exclusions and separately controlled injected defects.
 - Record limitations and remediation/exclusion decisions.
 
 **Exit evidence:** Reproducible quality checks and reviewed assessment.

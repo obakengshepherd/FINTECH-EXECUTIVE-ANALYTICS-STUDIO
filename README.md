@@ -4,11 +4,11 @@ A synthetic financial-services analytics portfolio project demonstrating how bus
 
 ## Project status
 
-**Foundation accepted · Phase 1 requirements in progress · Implementation not started**
+**Foundation ACCEPTED · Phase 1 ACCEPTED · Phase 2 IN PROGRESS · FEA-SYN-001 issued · Code implementation NOT STARTED**
 
 ## Purpose
 
-Build practical Data Analysis capability through a realistic, reproducible financial-services environment. The project will demonstrate business problem definition, analytical requirements, data exploration, data quality assessment, SQL-based analysis, KPI governance, financial and operational analytics, visualisation, and executive communication.
+Build practical Data Analysis capability through a realistic, reproducible financial-services environment. The project demonstrates business problem definition, analytical requirements, data exploration, data quality assessment, SQL-based analysis, KPI governance, financial and operational analytics, visualisation, and executive communication.
 
 This is a synthetic portfolio environment. It does not use or claim access to FNB, FirstRand, or any other institution's internal systems, confidential information, or production data.
 
@@ -18,14 +18,14 @@ This is a synthetic portfolio environment. It does not use or claim access to FN
 
 Business question: How is payment performance changing over time, and where should management investigate potential operational issues?
 
-Initial measures include payment attempts, resolved outcomes, successful and failed payments, pending payments, payment success and failure rates, and successful payment value. All proposed KPI definitions remain subject to explicit Product Owner approval.
+The Product Owner-approved baseline uses one record per distinct payment attempt; four snapshot outcomes (SUCCESSFUL, FAILED, PENDING, CANCELLED); resolved-outcome rates; SAST reporting weeks; a twelve-month ZAR-only population; and gross successful attempt value. Full rules are in the [analytical requirements](docs/business/ANALYTICAL-REQUIREMENTS.md) and [KPI dictionary](docs/business/KPI-DICTIONARY.md).
 
 ## Approved toolkit
 
 - SQL Server 2022 and T-SQL — primary analytical data store and analysis engine.
 - Excel — inspection, reconciliation, and supporting analysis.
 - Power BI — business-facing semantic model, visualisation, and reporting.
-- Python/pandas — supplementary synthetic data generation, analysis, or validation where justified.
+- Python — deterministic synthetic data generation and supplementary validation where justified.
 
 ## Working principles
 
@@ -36,11 +36,11 @@ Analytical outputs must define their business question, population, period, KPI 
 ## AI collaboration and governance
 
 This project follows the **Four-Nexus Engineering Operating Standard (FNEOS) v1.0**:
-1. ChatGPT owns architecture, requirements, documentation, assignments, and main-branch integration.
-2. Claude is the Specialist AI for independent review and explicitly assigned code implementation. Claude returns complete code files in chat and does not commit, push, create branches, or modify ChatGPT-owned documentation.
-3. The user assembles assigned code in VS Code and runs it; ChatGPT performs the return/alignment checkpoint and integrates approved work.
+1. ChatGPT owns architecture, requirements, specifications, documentation, assignments, change control, and main-branch integration.
+2. Claude performs one independent review of the relevant Primary AI work within the same bounded implementation handoff, then proceeds unless a genuine blocker or Product Owner decision prevents it. Claude implements only assigned code files and returns complete files in chat.
+3. The user assembles and tests in VS Code; ChatGPT performs one return/alignment checkpoint and integrates approved work.
 
-The three-stage workflow and zero-overlap rule are defined in [AI collaboration](docs/AI-COLLABORATION.md). The current coordination state and next assignment are recorded in [AI handoff](docs/AI-HANDOFF.md).
+Claude does not push, commit, create branches, or modify ChatGPT-owned documentation. The workflow is defined in [AI collaboration](docs/AI-COLLABORATION.md). The current assignment and coordination state are recorded in [AI handoff](docs/AI-HANDOFF.md).
 
 ## Documentation
 
@@ -49,10 +49,10 @@ The three-stage workflow and zero-overlap rule are defined in [AI collaboration]
 - [Implementation plan](docs/IMPLEMENTATION-PLAN.md)
 - [Decision register](docs/DECISIONS.md)
 - [AI collaboration — FNEOS](docs/AI-COLLABORATION.md)
-- [AI handoff](docs/AI-HANDOFF.md)
+- [AI handoff and active assignment](docs/AI-HANDOFF.md)
 - [Payments analytical case](docs/business/PAYMENTS-PERFORMANCE-CASE.md)
-- [Analytical requirements](docs/business/ANALYTICAL-REQUIREMENTS.md)
-- [KPI dictionary](docs/business/KPI-DICTIONARY.md)
+- [Approved analytical requirements](docs/business/ANALYTICAL-REQUIREMENTS.md)
+- [Approved KPI dictionary](docs/business/KPI-DICTIONARY.md)
 - [Data quality standards](docs/quality/DATA-QUALITY-STANDARDS.md)
 
 ## Status vocabulary
